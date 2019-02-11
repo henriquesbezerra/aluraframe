@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Negociações</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    
+</head>
+<body class="container">
+
+    <script>
+        class aluno{
+            constructor(matricula, nome){
+                this.matricula = matricula;
+                this.nome = nome;
+            }
+        }
+
+        class prova{
+            constructor(aluno, nota){
+                this.aluno = aluno;
+                this.nota = nota;
+            }
+        }
+
+        var avaliacao = [
+            new prova(new aluno(01,'Henrique'),8),
+            new prova(new aluno(02,'Amanda'),9),
+            new prova(new aluno(03, 'Jão'),6),
+            new prova(new aluno(4, 'Joana'), 5)
+        ]
+
+        var aprovados = avaliacao
+            .filter(prova => prova.nota >=7 )
+            .map(prova => prova.aluno.nome);
+
+        
+        console.log(aprovados);
+    </script>
+</body>
+</html>

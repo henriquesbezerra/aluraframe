@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Dados Funcionário</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    
+</head>
+<body class="container">
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Endereço</th>
+                <th>Salário</th>
+            </tr>
+        </thead>
+
+        <tbody id="table_funcionario">
+
+            <!-- ELE ESTÁ COM DIFICULDADES AQUI -->
+        <tbody>
+    </table>
+
+<script>    
+    let funcionarios = [
+        {
+            "nome": "Douglas",
+            "endereco" : "Rua da esquina, 123",
+            "salario" : "4500"
+        },
+        {
+            "nome": "Felipe",
+            "endereco" : "Rua da virada, 456",
+            "salario" : "5000"
+        },
+        {
+            "nome": "Silvio",
+            "endereco" : "Rua da aresta, 789",
+            "salario" : "6000"
+        }
+    ];
+
+    class TblFuncionarios{
+         constructor(funcionarios){
+            this._listaFuncionarios = funcionarios;
+         }
+
+         _template(modelo){
+            return modelo.map(n => {
+                return `
+                    <tr>
+                        <td>${n.nome}</td>
+                        <td>${n.endereco}</td>
+                        <td>${n.salario}</td>
+                    </tr>            
+                `}).join('')
+        }
+
+         render(elemento){
+             elemento.innerHTML = this._template(this._listaFuncionarios);
+         }
+    }
+
+    let TblFuncs = new TblFuncionarios(funcionarios);
+    TblFuncs.render(document.querySelector('#table_funcionario'));
+
+</script>
+</body>
+</html>

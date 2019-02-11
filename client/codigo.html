@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Código</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    
+</head>
+<body class="container">
+
+<script>
+    class Codigo{
+        constructor(texto){
+            if(!this._validaCodigo(texto)) throw new Error(`Código: ${texto} fora do Padrão!`);
+            this._texto = texto;
+        }
+
+        _validaCodigo(codigo){
+            return /\D{3}-\D{2}-\d{2}/.test(codigo);
+        }
+
+        get texto(){
+            return ""+this._texto;
+        }
+    }
+
+    console.log(new Codigo('ASD-WS-21').texto);
+    console.log(new Codigo('ASD-1S-21').texto);
+</script>
+</body>
+</html>
